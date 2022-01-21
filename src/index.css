@@ -3,7 +3,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
+  font-size: 0.9rem;
+    -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -19,4 +20,14 @@ code {
 
 .MuiCardHeader-root {
   background-color: rgba(0,0,0,.03);
+}
+
+a {
+  text-decoration: none;
+  color: "#007bff";
+}
+
+a:visited {
+  text-decoration: none;
+  color: "#007bff";
 }
