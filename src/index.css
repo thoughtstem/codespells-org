@@ -20,3 +20,9 @@ code {
 .MuiCardHeader-root {
   background-color: rgba(0,0,0,.03);
 }
+
+header{
+  margin: 0; 
+  z-index: 3;
+  position: fixed !important;
+}
