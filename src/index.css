@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.fab{
+  padding: 5px;
+  text-decoration: none;
+}
+
+.MuiCardHeader-root {
+  background-color: rgba(0,0,0,.03);
+}
