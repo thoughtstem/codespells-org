@@ -3,7 +3,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
     -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -24,10 +24,16 @@ code {
 
 a {
   text-decoration: none;
-  color: "#007bff";
+  color: #007bff;
 }
 
 a:visited {
   text-decoration: none;
-  color: "#007bff";
+  color: #007bff !important;
+}
+
+header{
+  margin: 0; 
+  z-index: 3;
+  position: fixed !important;
 }
