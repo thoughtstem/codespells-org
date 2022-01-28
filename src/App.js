@@ -9,7 +9,13 @@ import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
+import MarkdownToJsx from 'markdown-to-jsx';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 function HomePageCard(props){
   return(
@@ -18,6 +24,20 @@ function HomePageCard(props){
     </Card>
   )
 }
+
+function RecentBlogPostsCard(){
+  return(
+    <HomePageCard>
+      <CardHeader title="Blog">
+      </CardHeader>
+      <CardContent>
+        <Link to="/blog">We have a new blog</Link>
+      </CardContent>
+    </HomePageCard>
+
+  )
+}
+
 
 function DevelopmentLivestreamCard(){
   return(
@@ -94,8 +114,8 @@ function BuildsCard(){
       </CardHeader>
       <CardContent>
         <ul>
-          <li><b><a href="https://codespells-org.s3.amazonaws.com/Nexus/Versions/Clean-0.0.7z">The Clean Build:</a></b> A simple but powerful build of CodeSpells. It ships with a sleek, highly-configurable UI, an infinite voxel world, a powerful scripting language, and extensive documentation. We use this build ourselves when we make educational content.</li>
-          <li><b><a href="https://codespells-org.s3.amazonaws.com/Nexus/Versions/RacketConPresentation.7z">The Racketcon Build:</a></b> A presentation we built for RacketCon. We’ve frozen that build so that you can (if you wish) run the examples from our RacketCon talk.</li>
+          <li><b><a href="https://codespells-org.s3.amazonaws.com/OldRacketWebsite/Nexus/Versions/Clean-0.0.7z">The Clean Build:</a></b> A simple but powerful build of CodeSpells. It ships with a sleek, highly-configurable UI, an infinite voxel world, a powerful scripting language, and extensive documentation. We use this build ourselves when we make educational content.</li>
+          <li><b><a href="https://codespells-org.s3.amazonaws.com/OldRacketWebsite/Nexus/Versions/RacketConPresentation.7z">The Racketcon Build:</a></b> A presentation we built for RacketCon. We’ve frozen that build so that you can (if you wish) run the examples from our RacketCon talk.</li>
           <li><b><a href="https://nexus.codespells.org/#/">The Sock Puppet Build:</a></b> A demonstration of how the CodeSpells UI can be used to create story-driven coding experiences that blur the lines between educational technology and games. Under the mentorship of a mysterious sock puppet, you must infiltrate and reprogram a super-intelligent “Learn to Code” app that seeks global domination. Solve puzzles. Learn to code. Hack the Nexus.</li>
         </ul>
       </CardContent>
@@ -110,10 +130,10 @@ function WaysToSupportCard(){
       </CardHeader>
       <CardContent>
         <ul>
-          <li><a href="https://www.patreon.com/codespells"><i className="fas fa-gem">Join our Patreon</i></a></li>
-          <li><a href="https://discord.gg/prsZZnm"><i className="fas fa-user-friends">Join the Discord</i></a></li>
-          <li><a href="http://store.steampowered.com/app/324190"><i className="fas fa-gamepad">Get the Original Game on Steam</i></a></li>
-          <li><a href="http://eepurl.com/hacdwD"><i className="fas fa-envelope">Join the Mailing List</i></a></li>
+          <li><a href="https://www.patreon.com/codespells"><i className="fas fa-gem"></i> Join our Patreon</a></li>
+          <li><a href="https://discord.gg/prsZZnm"><i className="fas fa-user-friends"></i> Join the Discord</a></li>
+          <li><a href="http://store.steampowered.com/app/324190"><i className="fas fa-gamepad"></i> Get the Original Game on Steam</a></li>
+          <li><a href="http://eepurl.com/hacdwD"><i className="fas fa-envelope"></i> Join the Mailing List</a></li>
         </ul>
       </CardContent>
     </HomePageCard>
@@ -146,12 +166,13 @@ function MainContent(){
   return(
     <Container maxWidth="md" style={{marginTop: 20, position:"relative", zIndex: 1}}>
       <Grid container spacing={2}>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
+          <RecentBlogPostsCard/>
           <DevelopmentLivestreamCard/>
           <RecentOnTwitchCard/>
           <WaysToSupportCard/>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <AboutTheProjectCard/>
           <RecentOnYoutubeCard/>
           <BuildsCard/>
@@ -265,14 +286,95 @@ function Footer() {
   )
 }
 
-function App() {
-  return (
+function HomePage(){
+  return(
     <>
       <BackgroundImage/>
       <NavBar/>
       <div style={{paddingTop:60}}></div>
       <MainContent/>
       <Footer/>
+    </>
+  )
+}
+
+
+function BlogPost({title, date, children}){
+  return(<>
+    <Card >
+      <CardHeader title={title} subheader={date}>
+      </CardHeader>
+      <CardContent>
+        {children}
+      </CardContent>
+    </Card>
+  </>)
+}
+
+
+function HelloWorldBlogPost(){
+  return(<>
+    <BlogPost title="Hello World!" date={"Jan 28, 2022"}>
+      <MarkdownToJsx>
+        {`Hello, world!  We have a new blog (as you can see).  This post proves it.
+
+Because we're using \`markdown-to-jsx\`, we have fancies like...
+
+#Headers
+
+Oh, and...
+
+##Subheaders
+
+And... Code!
+
+  \`\`\`
+  (print "Hello World")
+  \`\`\`
+
+And... you get the point.  Anyway, see you in the next blog post!
+
+
+~Stephen and Lindsey
+        `}
+      </MarkdownToJsx>
+    </BlogPost>
+  </>)
+}
+
+function BlogContent(){
+  return(
+    <Container maxWidth="md" style={{marginTop: 20, position:"relative", zIndex: 1}}>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <HelloWorldBlogPost />
+        </Grid>
+      </Grid>
+    </Container>
+  )
+}
+
+function BlogPage(){
+  return(
+    <>
+      <BackgroundImage/>
+      <NavBar/>
+      <div style={{paddingTop:60}}></div>
+      <BlogContent />
+      <Footer/>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} /> 
+          <Route path="/blog" element={<BlogPage />} /> 
+        </Routes>
+      </Router>
     </>
   );
 }
