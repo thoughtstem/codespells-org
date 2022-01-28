@@ -1,4 +1,4 @@
-# The CodeSpells Website: codespells.org
+# The CodeSpells Website deployed at https://codespells.org
 
 ### `npm start`
 
