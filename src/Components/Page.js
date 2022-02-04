@@ -58,7 +58,7 @@ function NavBar(){
 }
 
 function FooterLink(props){
-   return <a style={{display: "block", marginBottom: 10,  textDecoration: "none", color: "#007bff"}} href={props.href}>{props.children}</a>
+   return <a style={{display: "block", marginBottom: 10,  textDecoration: "none"}} href={props.href}>{props.children}</a>
 }
 
 function SupportUs(){

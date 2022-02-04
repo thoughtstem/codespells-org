@@ -32,6 +32,14 @@ a:visited {
   color: #007bff !important;
 }
 
+a:hover {
+  color: #004c9e;
+}
+
+a:active {
+  color: #004c9e;
+}
+
 header{
   margin: 0; 
   z-index: 3;
