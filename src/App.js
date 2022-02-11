@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import {BlogPage} from "./Pages/BlogPage"
 import {HomePage} from "./Pages/HomePage"
-
+import AuthoringToolsHelloWorldPost from "./Pages/AuthoringToolsHelloWorldPost"
 function App() {
   return (
     <>
@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} /> 
           <Route path="/blog" element={<BlogPage />} /> 
+          <Route path="/blog/getting-started-with-the-codespells-authoring-tools" element={<AuthoringToolsHelloWorldPost />} /> 
         </Routes>
       </Router>
     </>
