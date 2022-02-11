@@ -1,20 +1,16 @@
-import '../App.css';
+//import '../App.css';
+
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import MarkdownToJsx from 'markdown-to-jsx';
-import {Page} from "../Components/Page"
-import {BlogPost} from "./BlogPage"
+import {Page} from "../../Components/Page"
+import {BlogPost} from "./util"
 
 function AuthoringToolsHelloWorldPost(){
-
   return(
-    <Page>
-    <Container maxWidth="md" style={{marginTop: 20, position:"relative", zIndex: 1}}>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
       <BlogPost title="Getting Started with the CodeSpells Authoring Tools" date={"Feb 4, 2022"}>
         <MarkdownToJsx>
           {`
@@ -146,10 +142,6 @@ Sort of...  Documentation coming soon!  Read the source code for now.  (Hey, we 
         `}
         </MarkdownToJsx>
       </BlogPost>
-        </Grid>
-      </Grid>
-    </Container>
-    </Page>
   )
 }
 

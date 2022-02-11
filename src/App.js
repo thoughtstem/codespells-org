@@ -4,17 +4,22 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import {BlogPage} from "./Pages/BlogPage"
+import {BlogIndexPage} from "./Pages/Blog"
 import {HomePage} from "./Pages/HomePage"
-import AuthoringToolsHelloWorldPost from "./Pages/AuthoringToolsHelloWorldPost"
+import {allBlogPosts} from "./Pages/Blog/index"
+import {Page} from "./Components/Page"
+
 function App() {
   return (
     <>
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} /> 
-          <Route path="/blog" element={<BlogPage />} /> 
-          <Route path="/blog/getting-started-with-the-codespells-authoring-tools" element={<AuthoringToolsHelloWorldPost />} /> 
+          <Route path="/blog" element={<BlogIndexPage />} /> 
+          {allBlogPosts().map(b => {
+            let TheBlogContent = b.component
+            let TheBlogPage = <Page><TheBlogContent /></Page> 
+            return <Route path={"/blog/" + b.slug} element={TheBlogPage} />})}
         </Routes>
       </Router>
     </>
