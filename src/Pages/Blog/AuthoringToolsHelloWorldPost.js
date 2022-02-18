@@ -67,13 +67,13 @@ a React project before, [using \`create-react-app\`](https://create-react-app.de
 Now in \`App.js\` add the import:
 
 \`\`\`
-  import CS from "codespells-react"
+  import * as CS from "codespells-react"
 \`\`\`
 
 Then, somewhere in your main component, add:
 
 \`\`\`
-  <CodeSpells.CloseSpellbook />
+  <CS.CloseSpellbook />
 \`\`\`
 
 Or, if you want a prettier example, try replacing your entire \`App\` component with:
